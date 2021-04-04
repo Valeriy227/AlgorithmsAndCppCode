@@ -1,0 +1,3 @@
+D:/Valera/Toolbox/projects/Clion/OIMP_Homework01/cmake-build-debug/CMakeFiles/edit_cache.dir
+D:/Valera/Toolbox/projects/Clion/OIMP_Homework01/cmake-build-debug/CMakeFiles/OIMP_Homework01.dir
+D:/Valera/Toolbox/projects/Clion/OIMP_Homework01/cmake-build-debug/CMakeFiles/rebuild_cache.dir

@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="OIMP_Homework01"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="gcc"/>
+		<Option virtualFolders="CMake Files\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="D:/Valera/Toolbox/projects/Clion/OIMP_Homework01/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="D:/Valera/Mingw/mingw32/bin/mingw32-make.exe -f &quot;D:/Valera/Toolbox/projects/Clion/OIMP_Homework01/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="D:/Valera/Mingw/mingw32/bin/mingw32-make.exe -f &quot;D:/Valera/Toolbox/projects/Clion/OIMP_Homework01/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="D:/Valera/Mingw/mingw32/bin/mingw32-make.exe -f &quot;D:/Valera/Toolbox/projects/Clion/OIMP_Homework01/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="D:/Valera/Mingw/mingw32/bin/mingw32-make.exe -f &quot;D:/Valera/Toolbox/projects/Clion/OIMP_Homework01/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="D:/Valera/Toolbox/projects/Clion/OIMP_Homework01/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="D:/Valera/Mingw/mingw32/bin/mingw32-make.exe -f &quot;D:/Valera/Toolbox/projects/Clion/OIMP_Homework01/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="D:/Valera/Mingw/mingw32/bin/mingw32-make.exe -f &quot;D:/Valera/Toolbox/projects/Clion/OIMP_Homework01/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="D:/Valera/Mingw/mingw32/bin/mingw32-make.exe -f &quot;D:/Valera/Toolbox/projects/Clion/OIMP_Homework01/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="D:/Valera/Mingw/mingw32/bin/mingw32-make.exe -f &quot;D:/Valera/Toolbox/projects/Clion/OIMP_Homework01/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="OIMP_Homework01">
+				<Option output="D:/Valera/Toolbox/projects/Clion/OIMP_Homework01/cmake-build-debug/OIMP_Homework01.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="D:/Valera/Toolbox/projects/Clion/OIMP_Homework01/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="D:/Valera/Mingw/mingw32/bin/../lib/gcc/i686-w64-mingw32/8.1.0/include/c++"/>
+					<Add directory="D:/Valera/Mingw/mingw32/bin/../lib/gcc/i686-w64-mingw32/8.1.0/include/c++/i686-w64-mingw32"/>
+					<Add directory="D:/Valera/Mingw/mingw32/bin/../lib/gcc/i686-w64-mingw32/8.1.0/include/c++/backward"/>
+					<Add directory="D:/Valera/Mingw/mingw32/bin/../lib/gcc/i686-w64-mingw32/8.1.0/include"/>
+					<Add directory="D:/Valera/Mingw/mingw32/bin/../lib/gcc/i686-w64-mingw32/8.1.0/include-fixed"/>
+					<Add directory="D:/Valera/Mingw/mingw32/bin/../lib/gcc/i686-w64-mingw32/8.1.0/../../../../i686-w64-mingw32/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="D:/Valera/Mingw/mingw32/bin/mingw32-make.exe -f &quot;D:/Valera/Toolbox/projects/Clion/OIMP_Homework01/cmake-build-debug/Makefile&quot;  VERBOSE=1 OIMP_Homework01"/>
+					<CompileFile command="D:/Valera/Mingw/mingw32/bin/mingw32-make.exe -f &quot;D:/Valera/Toolbox/projects/Clion/OIMP_Homework01/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="D:/Valera/Mingw/mingw32/bin/mingw32-make.exe -f &quot;D:/Valera/Toolbox/projects/Clion/OIMP_Homework01/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="D:/Valera/Mingw/mingw32/bin/mingw32-make.exe -f &quot;D:/Valera/Toolbox/projects/Clion/OIMP_Homework01/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="OIMP_Homework01/fast">
+				<Option output="D:/Valera/Toolbox/projects/Clion/OIMP_Homework01/cmake-build-debug/OIMP_Homework01.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="D:/Valera/Toolbox/projects/Clion/OIMP_Homework01/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="D:/Valera/Mingw/mingw32/bin/../lib/gcc/i686-w64-mingw32/8.1.0/include/c++"/>
+					<Add directory="D:/Valera/Mingw/mingw32/bin/../lib/gcc/i686-w64-mingw32/8.1.0/include/c++/i686-w64-mingw32"/>
+					<Add directory="D:/Valera/Mingw/mingw32/bin/../lib/gcc/i686-w64-mingw32/8.1.0/include/c++/backward"/>
+					<Add directory="D:/Valera/Mingw/mingw32/bin/../lib/gcc/i686-w64-mingw32/8.1.0/include"/>
+					<Add directory="D:/Valera/Mingw/mingw32/bin/../lib/gcc/i686-w64-mingw32/8.1.0/include-fixed"/>
+					<Add directory="D:/Valera/Mingw/mingw32/bin/../lib/gcc/i686-w64-mingw32/8.1.0/../../../../i686-w64-mingw32/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="D:/Valera/Mingw/mingw32/bin/mingw32-make.exe -f &quot;D:/Valera/Toolbox/projects/Clion/OIMP_Homework01/cmake-build-debug/Makefile&quot;  VERBOSE=1 OIMP_Homework01/fast"/>
+					<CompileFile command="D:/Valera/Mingw/mingw32/bin/mingw32-make.exe -f &quot;D:/Valera/Toolbox/projects/Clion/OIMP_Homework01/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="D:/Valera/Mingw/mingw32/bin/mingw32-make.exe -f &quot;D:/Valera/Toolbox/projects/Clion/OIMP_Homework01/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="D:/Valera/Mingw/mingw32/bin/mingw32-make.exe -f &quot;D:/Valera/Toolbox/projects/Clion/OIMP_Homework01/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="D:/Valera/Toolbox/projects/Clion/OIMP_Homework01/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="D:/Valera/Mingw/mingw32/bin/mingw32-make.exe -f &quot;D:/Valera/Toolbox/projects/Clion/OIMP_Homework01/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="D:/Valera/Mingw/mingw32/bin/mingw32-make.exe -f &quot;D:/Valera/Toolbox/projects/Clion/OIMP_Homework01/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="D:/Valera/Mingw/mingw32/bin/mingw32-make.exe -f &quot;D:/Valera/Toolbox/projects/Clion/OIMP_Homework01/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="D:/Valera/Mingw/mingw32/bin/mingw32-make.exe -f &quot;D:/Valera/Toolbox/projects/Clion/OIMP_Homework01/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="D:/Valera/Toolbox/projects/Clion/OIMP_Homework01/A.cpp">
+			<Option target="OIMP_Homework01"/>
+		</Unit>
+		<Unit filename="D:/Valera/Toolbox/projects/Clion/OIMP_Homework01/B.cpp">
+			<Option target="OIMP_Homework01"/>
+		</Unit>
+		<Unit filename="D:/Valera/Toolbox/projects/Clion/OIMP_Homework01/C.cpp">
+			<Option target="OIMP_Homework01"/>
+		</Unit>
+		<Unit filename="D:/Valera/Toolbox/projects/Clion/OIMP_Homework01/D.cpp">
+			<Option target="OIMP_Homework01"/>
+		</Unit>
+		<Unit filename="D:/Valera/Toolbox/projects/Clion/OIMP_Homework01/E.cpp">
+			<Option target="OIMP_Homework01"/>
+		</Unit>
+		<Unit filename="D:/Valera/Toolbox/projects/Clion/OIMP_Homework01/F.cpp">
+			<Option target="OIMP_Homework01"/>
+		</Unit>
+		<Unit filename="D:/Valera/Toolbox/projects/Clion/OIMP_Homework01/G.cpp">
+			<Option target="OIMP_Homework01"/>
+		</Unit>
+		<Unit filename="D:/Valera/Toolbox/projects/Clion/OIMP_Homework01/H.cpp">
+			<Option target="OIMP_Homework01"/>
+		</Unit>
+		<Unit filename="D:/Valera/Toolbox/projects/Clion/OIMP_Homework01/I.cpp">
+			<Option target="OIMP_Homework01"/>
+		</Unit>
+		<Unit filename="D:/Valera/Toolbox/projects/Clion/OIMP_Homework01/J.cpp">
+			<Option target="OIMP_Homework01"/>
+		</Unit>
+		<Unit filename="D:/Valera/Toolbox/projects/Clion/OIMP_Homework01/K.cpp">
+			<Option target="OIMP_Homework01"/>
+		</Unit>
+		<Unit filename="D:/Valera/Toolbox/projects/Clion/OIMP_Homework01/L.cpp">
+			<Option target="OIMP_Homework01"/>
+		</Unit>
+		<Unit filename="D:/Valera/Toolbox/projects/Clion/OIMP_Homework01/M.cpp">
+			<Option target="OIMP_Homework01"/>
+		</Unit>
+		<Unit filename="D:/Valera/Toolbox/projects/Clion/OIMP_Homework01/N.cpp">
+			<Option target="OIMP_Homework01"/>
+		</Unit>
+		<Unit filename="D:/Valera/Toolbox/projects/Clion/OIMP_Homework01/O.cpp">
+			<Option target="OIMP_Homework01"/>
+		</Unit>
+		<Unit filename="D:/Valera/Toolbox/projects/Clion/OIMP_Homework01/OIMP_Homework02.cpp">
+			<Option target="OIMP_Homework01"/>
+		</Unit>
+		<Unit filename="D:/Valera/Toolbox/projects/Clion/OIMP_Homework01/P.cpp">
+			<Option target="OIMP_Homework01"/>
+		</Unit>
+		<Unit filename="D:/Valera/Toolbox/projects/Clion/OIMP_Homework01/main.cpp">
+			<Option target="OIMP_Homework01"/>
+		</Unit>
+		<Unit filename="D:/Valera/Toolbox/projects/Clion/OIMP_Homework01/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>
