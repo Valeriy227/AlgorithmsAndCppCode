@@ -1,0 +1,3 @@
+C:/Users/User/CLionProjects/Day07_ACM-tour/cmake-build-debug/CMakeFiles/Day07_ACM_tour.dir
+C:/Users/User/CLionProjects/Day07_ACM-tour/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/User/CLionProjects/Day07_ACM-tour/cmake-build-debug/CMakeFiles/rebuild_cache.dir

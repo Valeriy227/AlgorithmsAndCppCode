@@ -1,0 +1,3 @@
+C:/Users/User/CLionProjects/Day08_Fast_furie_transformation/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/User/CLionProjects/Day08_Fast_furie_transformation/cmake-build-debug/CMakeFiles/Day08_Fast_furie_transformation.dir
+C:/Users/User/CLionProjects/Day08_Fast_furie_transformation/cmake-build-debug/CMakeFiles/rebuild_cache.dir

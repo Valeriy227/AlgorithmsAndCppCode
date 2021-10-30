@@ -1,0 +1,3 @@
+C:\Users\User\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\181.5540.25\bin\cmake\bin\cmake.exe -E remove -f CMakeFiles\Day02_Divide_and_conquer.dir/objects.a
+C:\PROGRA~2\CODEBL~1\MinGW\bin\ar.exe cr CMakeFiles\Day02_Divide_and_conquer.dir/objects.a @CMakeFiles\Day02_Divide_and_conquer.dir\objects1.rsp
+C:\PROGRA~2\CODEBL~1\MinGW\bin\G__~1.EXE -g   -Wl,--whole-archive CMakeFiles\Day02_Divide_and_conquer.dir/objects.a -Wl,--no-whole-archive  -o Day02_Divide_and_conquer.exe -Wl,--out-implib,libDay02_Divide_and_conquer.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\Day02_Divide_and_conquer.dir\linklibs.rsp

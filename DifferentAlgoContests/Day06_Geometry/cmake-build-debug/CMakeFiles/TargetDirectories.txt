@@ -1,0 +1,3 @@
+C:/Users/User/CLionProjects/Day06_Geometry/cmake-build-debug/CMakeFiles/Day06_Geometry.dir
+C:/Users/User/CLionProjects/Day06_Geometry/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/User/CLionProjects/Day06_Geometry/cmake-build-debug/CMakeFiles/rebuild_cache.dir

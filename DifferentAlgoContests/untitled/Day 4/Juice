@@ -1,0 +1,125 @@
+//WA5
+//Ah, just mixed up pref and suf in reconstruct
+
+#include <iostream>
+#include <vector>
+#include <algorithm>
+#include <map>
+#include <cmath>
+#include <iomanip>
+#include <set>
+#include <unordered_map>
+
+#define endl "\n"
+
+using namespace std;
+
+typedef long long ll;
+
+vector<vector<int>> get_suf_dp(vector<int> &v, int n, int w) {
+    vector<vector<int>> dp(n + 1, vector<int>(w + 1, w + 1));
+    dp[n][0] = 0;
+    for (int i = n - 1; i >= 0; --i) {
+        for (int j = 0; j <= w; ++j) {
+            dp[i][j] = min(dp[i + 1][j], (j >= v[i] ?
+                                          dp[i][j - v[i]] + 1 : w + 1));
+        }
+    }
+    return dp;
+}
+
+vector<vector<int>> get_pref_dp(vector<int> &v, int n, int w) {
+    vector<vector<int>> dp(n + 1, vector<int>(w + 1, w + 1));
+    dp[0][0] = 0;
+    for (int i = 1; i <= n; ++i) {
+        for (int j = 0; j <= w; ++j) {
+            dp[i][j] = min(dp[i - 1][j], (j >= v[i - 1] ?
+                                          dp[i][j - v[i - 1]] + 1 : w + 1));
+        }
+    }
+    return dp;
+}
+
+int main() {
+    int n, k, w;
+    cin >> n >> k >> w;
+    vector<int> v(n);
+    for (int i = 0; i < n; ++i) {
+        cin >> v[i];
+    }
+
+    auto pref = get_pref_dp(v, n, w);
+    auto suf = get_suf_dp(v, n, w);
+
+    int ans = 2e9 + 1, ansk, ansq;
+    for (int i = 0; i < k; ++i) {
+        int x, y, q;
+        cin >> x >> y >> q;
+        int min_cnt = w + 1;
+        for (int j = 0; j <= w; ++j) {
+            min_cnt = min(min_cnt, pref[q - 1][j] + suf[q][w - j]);
+        }
+        if (min_cnt > w) {
+            continue;
+        }
+        int cans = x * w + min_cnt * y;
+        if (ans > cans) {
+            ans = cans;
+            ansk = i;
+            ansq = q;
+        }
+    }
+
+    if (ans > 2e9) {
+        cout << 0 << " " << 0 << endl;
+    }
+    else {
+        cout << ans << " " << ansk + 1 << endl;
+        int min_cnt = w + 1, cnt_pref;
+        for (int j = 0; j <= w; ++j) {
+            int cur_cnt = pref[ansq - 1][j] + suf[ansq][w - j];
+            if (min_cnt > cur_cnt) {
+                min_cnt = cur_cnt;
+                cnt_pref = j;
+            }
+        }
+
+        vector<int> each_cnt(n);
+        int ci = ansq - 1, cj = cnt_pref;
+        while (ci > 0 && cj > 0) {
+            if (cj < v[ci - 1]) {
+                ci--;
+            }
+            else {
+                if (pref[ci - 1][cj] < pref[ci][cj - v[ci - 1]]) {
+                    ci--;
+                }
+                else {
+                    each_cnt[ci - 1]++;
+                    cj -= v[ci - 1];
+                }
+            }
+        }
+
+        ci = ansq, cj = w - cnt_pref;
+        while (ci < n && cj > 0) {
+            if (cj < v[ci]) {
+                ci++;
+            }
+            else {
+                if (suf[ci + 1][cj] < suf[ci][cj - v[ci]]) {
+                    ci++;
+                }
+                else {
+                    each_cnt[ci]++;
+                    cj -= v[ci];
+                }
+            }
+        }
+
+        for (int i : each_cnt) {
+            cout << i << " ";
+        }
+        cout << endl;
+    }
+}

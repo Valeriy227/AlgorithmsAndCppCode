@@ -1,0 +1,3 @@
+C:/Users/User/CLionProjects/Field_of_dreams/cmake-build-debug/CMakeFiles/Field_of_dreams.dir
+C:/Users/User/CLionProjects/Field_of_dreams/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/User/CLionProjects/Field_of_dreams/cmake-build-debug/CMakeFiles/rebuild_cache.dir

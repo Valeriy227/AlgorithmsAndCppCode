@@ -1,0 +1,108 @@
+//It turns out, that if you set 'y' negative values you can`t reflect a polygon relative to X axis
+//WA2
+
+#include <iostream>
+#include <vector>
+#include <algorithm>
+#include <map>
+#include <cmath>
+#include <iomanip>
+#include <set>
+
+#define endl "\n"
+
+using namespace std;
+
+typedef long long ll;
+typedef long double ld;
+
+ll cross_prod(pair<ll, ll> a, pair<ll, ll> b, pair<ll, ll> c) {
+    return (b.first - a.first) * (c.second - a.second) -
+           (c.first - a.first) * (b.second - a.second);
+}
+
+vector<ld> convex_hull(vector<pair<ll, ll>> v, int n, int h, bool rev) {
+    if (rev) {
+        for (int i = 0; i < n; ++i) {
+            v[i].first = -v[i].first;
+        }
+    }
+    else {
+        reverse(v.begin(), v.end());
+    }
+
+    vector<ld> res = {1.0 / (ld)0.0};
+    vector<int> st = {n - 1, 0};
+    int sz = 2;
+    for (int i = 1; i < n; ++i) {
+        while (sz > 2 && cross_prod(v[st[sz - 2]], v[st[sz - 1]], v[i]) <= 0) {
+            sz--;
+            st.pop_back();
+        }
+
+        if (v[st[sz - 1]].second > v[i].second) {
+            res.push_back(((ld)h - v[i].second) /
+                          (v[st[sz - 1]].second - v[i].second) *
+                          (v[st[sz - 1]].first - v[i].first) + v[i].first);
+        }
+        else {
+            res.push_back(1.0 / (ld)0.0);
+        }
+
+        sz++;
+        st.push_back(i);
+    }
+
+    if (rev) {
+        for (auto &i : res) {
+            i = -i;
+        }
+    }
+    else {
+        reverse(res.begin(), res.end());
+    }
+
+    return res;
+}
+
+bool cmp(pair<ld, ld> a, pair<ld, ld> b) {
+    if (a.second == b.second) {
+        return a.first < b.first;
+    }
+    return a.second < b.second;
+}
+
+int main() {
+    int n, h;
+    cin >> n >> h;
+    vector<bool> tower(n);
+    vector<pair<ll, ll>> v(n);
+    for (int i = 0; i < n; ++i) {
+        int flag;
+        cin >> v[i].first >> v[i].second >> flag;
+        tower[i] = flag;
+    }
+
+    auto right = convex_hull(v, n, h, 0);
+    auto left = convex_hull(v, n, h, 1);
+
+    vector<pair<ld, ld>> segm(n);
+    for (int i = 0; i < n; ++i) {
+        segm[i] = {left[i], right[i]};
+    }
+    sort(segm.begin(), segm.end(), cmp);
+
+    int ans = 0;
+    for (int i = 0; i < n; ++i) {
+        if (tower[i]) {
+            ans++;
+            for (int j = i + 1; j < n; ++j) {
+                if (segm[i].second >= segm[j].first) {
+                    tower[j] = false;
+                }
+            }
+        }
+    }
+
+    cout << ans << endl;
+}

@@ -1,0 +1,104 @@
+#include <iostream>
+#include <vector>
+#include <algorithm>
+#include <map>
+#include <cmath>
+#include <iomanip>
+#include <set>
+#include <unordered_map>
+#include <bitset>
+
+#define endl "\n"
+
+using namespace std;
+
+typedef long long ll;
+
+ll mod = 1234567891;
+map<string, int> str_to_int;
+vector<bitset<100>> g;
+vector<unordered_map<int, bitset<100>>> mem;
+
+bitset<100> fast_pow(int power, int cv) {
+    if (mem[cv].count(power)) {
+        return mem[cv][power];
+    }
+    if (power == 1) {
+        return g[cv];
+    }
+    bitset<100> res;
+    if (power % 2 == 0) {
+        auto curr = fast_pow(power / 2, cv);
+        for (int i = 0; i < 100; ++i) {
+            if (curr[i]) {
+                res |= fast_pow(power / 2, i);
+            }
+        }
+    }
+    else {
+        auto curr = fast_pow(1, cv);
+        for (int i = 0; i < 100; ++i) {
+            if (curr[i]) {
+                res |= fast_pow(power - 1, i);
+            }
+        }
+    }
+    return mem[cv][power] = res;
+}
+
+int main() {
+    mem.resize(100);
+    int n, k;
+    cin >> n >> k;
+    int t = 0;
+    for (int i = 0; i < n; ++i) {
+        string a, b;
+        cin >> a >> b;
+
+        int ha, hb;
+        if (str_to_int.find(a) == str_to_int.end()) {
+            ha = str_to_int.size();
+            g.push_back(bitset<100>());
+            str_to_int[a] = ha;
+        }
+        else {
+            ha = str_to_int[a];
+        }
+
+        if (str_to_int.find(b) == str_to_int.end()) {
+            hb = str_to_int.size();
+            g.push_back(bitset<100>());
+            str_to_int[b] = hb;
+        }
+        else {
+            hb = str_to_int[b];
+        }
+        g[hb].set(ha);
+    }
+
+    string line;
+    ll ans = 1;
+    while (cin >> line && line != "0") {
+        line += ',';
+        string s;
+        for (auto ch : line) {
+            if ('a' <= ch && ch <= 'z') {
+                s += ch;
+            }
+            else {
+                if (!s.empty()) {
+                    if (str_to_int.find(s) == str_to_int.end()) {
+                        cout << 0 << endl;
+                        return 0;
+                    }
+                    else {
+                        auto res = fast_pow(k, str_to_int[s]);
+                        ans = (ans * res.count()) % mod;
+                    }
+                    s.clear();
+                }
+            }
+        }
+    }
+    cout << ans << endl;
+}

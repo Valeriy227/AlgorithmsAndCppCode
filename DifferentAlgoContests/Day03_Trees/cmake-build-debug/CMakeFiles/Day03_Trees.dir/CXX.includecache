@@ -1,0 +1,16 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+C:/Users/User/CLionProjects/Day03_Trees/B.cpp
+
+C:/Users/User/CLionProjects/Day03_Trees/F.cpp
+
+C:/Users/User/CLionProjects/Day03_Trees/G.cpp
+bits/stdc++.h
+-
+

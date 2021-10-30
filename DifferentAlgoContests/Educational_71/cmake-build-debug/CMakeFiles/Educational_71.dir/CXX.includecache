@@ -1,0 +1,18 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+C:/Users/User/CLionProjects/Educational_71/A.cpp
+
+C:/Users/User/CLionProjects/Educational_71/B.cpp
+bits/stdc++.h
+-
+
+C:/Users/User/CLionProjects/Educational_71/C.cpp
+
+C:/Users/User/CLionProjects/Educational_71/D.cpp
+

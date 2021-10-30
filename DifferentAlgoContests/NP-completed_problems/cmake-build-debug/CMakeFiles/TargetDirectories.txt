@@ -1,0 +1,3 @@
+C:/Users/User/CLionProjects/NP-completed_problems/cmake-build-debug/CMakeFiles/NP_completed_problems.dir
+C:/Users/User/CLionProjects/NP-completed_problems/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/User/CLionProjects/NP-completed_problems/cmake-build-debug/CMakeFiles/rebuild_cache.dir

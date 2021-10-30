@@ -1,0 +1,3 @@
+C:/Users/User/CLionProjects/AISD_Short05/cmake-build-debug/CMakeFiles/AISD_Short05.dir
+C:/Users/User/CLionProjects/AISD_Short05/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/User/CLionProjects/AISD_Short05/cmake-build-debug/CMakeFiles/rebuild_cache.dir

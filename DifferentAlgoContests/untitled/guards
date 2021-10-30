@@ -1,0 +1,45 @@
+#include <iostream>
+#include <vector>
+#include <algorithm>
+#include <map>
+#include <queue>
+
+using namespace std;
+
+typedef long long ll;
+
+int main() {
+    int r, c;
+    cin >> r;
+    vector<pair<ll, ll>> row;
+    for (int i = 0; i < r; ++i) {
+        ll cnt_guards, cnt;
+        cin >> cnt_guards >> cnt;
+        row.push_back({cnt_guards, cnt});
+    }
+    sort(row.rbegin(), row.rend());
+
+    vector<pair<ll, ll>> col;
+    cin >> c;
+    for (int i = 0; i < c; ++i) {
+        ll cnt_guards, cnt;
+        cin >> cnt_guards >> cnt;
+        col.push_back({cnt_guards, cnt});
+    }
+    sort(col.begin(), col.end());
+
+    for (auto &i : row) {
+        ll total = 0, need = i.first * i.second;
+//        for (int indj = col.size() - 1; indj >= 0; indj--) {
+        for (int j = col.size() - 1; j >= 0; j--) {
+//            auto &j = col[indj];
+            if (j > 0) {
+                ll degree = col[j].first - col[j - 1].first;
+                total += degree * col[j].second;
+                if (total >= need) {
+                    if ()
+                }
+            }
+        }
+    }
+}

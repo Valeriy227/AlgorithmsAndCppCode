@@ -1,0 +1,118 @@
+//WA 13
+//In push() you need cut borders for cv * 2 and cv * 2 + 1
+//OK
+
+#include <iostream>
+#include <vector>
+#include <algorithm>
+#include <map>
+#include <cmath>
+#include <iomanip>
+#include <set>
+#include <queue>
+
+#define endl "\n"
+
+using namespace std;
+
+typedef long long ll;
+
+int n;
+vector<int> st, d, ind;
+
+void build(int l = 0, int r = n, int cv = 1) {
+    if (l + 1 == r) {
+        ind[cv] = l;
+    }
+    else {
+        int mid = (l + r) / 2;
+        build(l, mid, cv * 2);
+        build(mid, r, cv * 2 + 1);
+        ind[cv] = ind[cv * 2];
+    }
+}
+
+void push(int cv) {
+    st[cv] = max(st[cv], d[cv]);
+    if (cv * 2 < 4 * n) {
+        d[cv * 2] = max(d[cv * 2], d[cv]);
+    }
+    if (cv * 2 + 1 < 4 * n) {
+        d[cv * 2 + 1] = max(d[cv * 2 + 1], d[cv]);
+    }
+    d[cv] = 0;
+}
+
+void upd(int ll, int rr, int x, int l = 0, int r = n, int cv = 1) {
+    push(cv);
+    if (ll == l && rr == r) {
+        d[cv] = x;
+        push(cv);
+        return;
+    }
+    if (ll >= rr) {
+        return;
+    }
+
+    int mid = (l + r) / 2;
+    upd(ll, min(rr, mid), x, l, mid, cv * 2);
+    upd(max(ll, mid), rr, x, mid, r, cv * 2 + 1);
+    if (st[cv * 2] <= st[cv * 2 + 1]) {
+        ind[cv] = ind[cv * 2];
+    }
+    else {
+        ind[cv] = ind[cv * 2 + 1];
+    }
+    st[cv] = min(st[cv * 2], st[cv * 2 + 1]);
+}
+
+int get(int ll, int rr, int l = 0, int r = n, int cv = 1) {
+    push(cv);
+    if (ll == l && rr == r) {
+        return cv;
+    }
+    if (ll >= rr) {
+        return -1;
+    }
+    int mid = (l + r) / 2;
+    int res1 = get(ll, min(rr, mid), l, mid, cv * 2);
+    int res2 = get(max(ll, mid), rr, mid, r, cv * 2 + 1);
+    if (res1 == -1) {
+        return res2;
+    }
+    if (res2 == -1) {
+        return res1;
+    }
+    if (st[res1] <= st[res2]) {
+        return res1;
+    }
+    else {
+        return res2;
+    }
+}
+
+int main() {
+    int q;
+    cin >> n >> q;
+    st.resize(4 * n);
+    d.resize(4 * n);
+    ind.resize(4 * n);
+    build();
+
+    while (q) {
+        q--;
+        string s;
+        cin >> s;
+        if (s == "defend") {
+            int l, r, x;
+            cin >> l >> r >> x;
+            upd(l - 1, r, x);
+        }
+        else {
+            int l, r;
+            cin >> l >> r;
+            int res = get(l - 1, r);
+            cout << st[res] << " " << ind[res] + 1 << endl;
+        }
+    }
+}

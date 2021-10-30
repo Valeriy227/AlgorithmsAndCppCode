@@ -1,0 +1,18 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+C:/Users/User/CLionProjects/Field_of_dreams/A. Alphabet fot the blind.cpp
+
+C:/Users/User/CLionProjects/Field_of_dreams/J. Monsters.cpp
+
+C:/Users/User/CLionProjects/Field_of_dreams/P. Dinocode.cpp
+
+C:/Users/User/CLionProjects/Field_of_dreams/main.cpp
+bits/stdc++.h
+-
+

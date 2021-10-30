@@ -1,0 +1,14 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+C:/Users/User/CLionProjects/Day12_ACM_tour2/A.cpp
+
+C:/Users/User/CLionProjects/Day12_ACM_tour2/B.cpp
+bits/stdc++.h
+-
+

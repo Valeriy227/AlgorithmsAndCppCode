@@ -1,0 +1,16 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+C:/Users/User/CLionProjects/Day11_Matroids/A.cpp
+
+C:/Users/User/CLionProjects/Day11_Matroids/B.cpp
+bits/stdc++.h
+-
+
+C:/Users/User/CLionProjects/Day11_Matroids/C.cpp
+

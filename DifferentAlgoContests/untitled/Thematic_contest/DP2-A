@@ -1,0 +1,66 @@
+//OK
+
+#include <iostream>
+#include <vector>
+#include <algorithm>
+#include <map>
+#include <cmath>
+#include <iomanip>
+#include <set>
+
+#define endl "\n"
+
+using namespace std;
+
+typedef long long ll;
+
+int main() {
+    int n, k;
+    cin >> n >> k;
+    vector<vector<int>> v(n);
+    for (int i = 0; i < n; ++i) {
+        int a, b, c;
+        cin >> a >> b >> c;
+        v[i] = {a, b, c};
+    }
+    int m = (1 << n);
+    vector<bool> dp(m);
+    vector<int> anc(m);
+    dp[0] = 1;
+    int anscnt = 0, ansmask = 0;
+    for (int mask = 1; mask < m; ++mask) {
+        int c = k;
+        int cnt = 0;
+        for (int i = 0; i < n; ++i) {
+            if (mask & (1 << i)) {
+                c += v[i][2];
+                cnt++;
+            }
+        }
+        for (int i = 0; i < n; ++i) {
+            if ((mask & (1 << i)) && v[i][0] <= c - v[i][2] &&
+                c - v[i][2] <= v[i][1]) {
+                if (dp[mask ^ (1 << i)]) {
+                    if (anscnt < cnt) {
+                        anscnt = cnt;
+                        ansmask = mask;
+                    }
+                    dp[mask] = true;
+                    anc[mask] = i;
+                }
+            }
+        }
+    }
+
+    cout << anscnt << endl;
+    vector<int> ans;
+    while (ansmask > 0) {
+        ans.push_back(anc[ansmask]);
+        ansmask ^= (1 << anc[ansmask]);
+    }
+    reverse(ans.begin(), ans.end());
+    for (int i : ans) {
+        cout << i + 1 << " ";
+    }
+    cout << endl;
+}

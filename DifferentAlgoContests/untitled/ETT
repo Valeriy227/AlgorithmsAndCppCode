@@ -1,0 +1,214 @@
+#include <iostream>
+#include <vector>
+#include <algorithm>
+#include <map>
+#include <unordered_set>
+
+#define endl "\n"
+
+using namespace std;
+
+typedef long long ll;
+
+struct node {
+    int sz;
+    int val;
+    ll priority;
+    node *anc;
+    node *left;
+    node *right;
+    node(int x) {
+        val = x;
+        sz = 1;
+        priority = (((ll)rand) << 15) + rand();
+        anc = 0;
+        left = 0;
+        right = 0;
+    }
+};
+
+int size(node *root) {
+    if (!root) {
+        return 0;
+    }
+    return root->sz;
+}
+
+void hang(node *child, node *root, bool is_left) {
+    if (root) {
+        if (is_left) {
+            root->left = child;
+        }
+        else {
+            root->right = child;
+        }
+        root->sz = size(root->left) + size(root->right) + 1;
+    }
+    if (child) {
+        child->anc = root;
+    }
+}
+
+void cut(node *child, node *root, bool is_left) {
+    if (is_left) {
+        root->left = 0;
+    }
+    else {
+        root->right = 0;
+    }
+    root->sz = size(root->left) + size(root->right) + 1;
+    if (child) {
+        child->anc = 0;
+    }
+}
+
+node* merge(node *l, node *r) {
+    if (!l) {
+        return r;
+    }
+    if (!r) {
+        return l;
+    }
+    if (l->priority < r->priority) {
+        auto res = merge(l, r->left);
+        hang(res, r, true);
+        return r;
+    }
+    else {
+        auto res = merge(l->right, r);
+        hang(res, l, false);
+        return l;
+    }
+}
+
+pair<node*, node*> split(node *root, int k) {
+    if (!root) {
+        return {0, 0};
+    }
+    if (k == 0) {
+        return {0, root};
+    }
+    if (root->sz == k) {
+        return {root, 0};
+    }
+    if (size(root->left) >= k) {
+        node *left = root->left;
+        cut(left, root, true);
+        auto res = split(left, k);
+        hang(res.second, root, true);
+        return {res.first, root};
+    }
+    else {
+        node *right = root->right;
+        cut(right, root, false);
+        auto res = split(right, k - size(root->left) - 1);
+        hang(res.first, root, false);
+        return {root, res.second};
+    }
+}
+
+node* get_root(node *curr) {
+    if (!curr) {
+        return 0;
+    }
+    if (!curr->anc) {
+        return curr;
+    }
+    return get_root(curr->anc);
+}
+
+int get_number(node *curr, bool flag = true) {
+    if (!curr) {
+        return 0;
+    }
+    int res = flag * size(curr->left);
+    if (!curr->anc) {
+        res += 1;
+    }
+    else {
+        res += get_number(curr->anc, false);
+        if (curr->anc->left != curr) {
+            res += size(curr->anc->left) + 1;
+        }
+    }
+    return res;
+}
+
+int main() {
+//    freopen("input.txt", "r", stdin);
+//    freopen("output2.txt", "w", stdout);
+    int n, m;
+    cin >> n >> m;
+    vector<pair<node*, node*>> edges(m);
+    map<pair<int, int>, int> map1;
+    vector<unordered_set<node*>> g(n);
+    for (int i = 0; i < m; ++i) {
+        string s;
+        cin >> s;
+        int a, b;
+        cin >> a >> b;
+        a--;
+        b--;
+        if (s == "get") {
+            if (a == b) {
+                cout << 1;
+                continue;
+            }
+            if (g[a].empty() || g[b].empty()) {
+                cout << 0;
+            }
+            else if (get_root(*g[a].begin())->val == get_root(*g[b].begin())->val) {
+                cout << 1;
+            }
+            else {
+                cout << 0;
+            }
+        }
+        else if (s == "cut") {
+            int e = map1[{min(a, b), max(a, b)}];
+            map1.erase({min(a, b), max(a, b)});
+            node *e1 = edges[e].first, *e2 = edges[e].second;
+            int num1 = get_number(e1);
+            int num2 = get_number(e2);
+            if (num1 > num2) {
+                swap(e1, e2);
+                swap(edges[e].first, edges[e].second);
+                swap(num1, num2);
+            }
+            node *root = get_root(e1);
+            auto res1 = split(root, num2);
+            auto res2 = split(res1.first, num1 - 1);
+            auto mid = split(res2.second, size(res2.second) - 1).first;
+            auto finalmid = split(mid, 1).second;
+            auto external = merge(res2.first, res1.second);
+            g[a].erase(e1);
+            g[a].erase(e2);
+            g[b].erase(e1);
+            g[b].erase(e2);
+            edges[e].first = edges[e].second = 0;
+        }
+        else if (s == "link") {
+            map1[{min(a, b), max(a, b)}] = i;
+            edges[i].first = new node(i);
+            edges[i].second = new node(i);
+            node *v1 = 0, *v2 = 0;
+            if (!g[a].empty()) {
+                v1 = *g[a].begin();
+            }
+            if (!g[b].empty()) {
+                v2 = *g[b].begin();
+            }
+            node *root1 = get_root(v1), *root2 = get_root(v2);
+            int num1 = get_number(v1);
+            int num2 = get_number(v2);
+            auto res1 = split(root2, num2 - 1);
+            auto finalr2 = merge(merge(edges[i].first, merge(res1.second, res1.first)), edges[i].second);
+            auto res2 = split(root1, num1 - 1);
+            auto res = merge(res2.first, merge(finalr2, res2.second));
+            g[a].insert(edges[i].first);
+            g[b].insert(edges[i].second);
+        }
+    }
+//    fclose(stdin);
+//    fclose(stdout);
+}

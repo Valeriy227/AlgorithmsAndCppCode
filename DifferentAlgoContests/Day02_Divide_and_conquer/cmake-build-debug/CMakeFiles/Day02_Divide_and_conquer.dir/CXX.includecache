@@ -1,0 +1,16 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+C:/Users/User/CLionProjects/Day02_Divide_and_conquer/A.cpp
+
+C:/Users/User/CLionProjects/Day02_Divide_and_conquer/B.cpp
+
+C:/Users/User/CLionProjects/Day02_Divide_and_conquer/D.cpp
+bits/stdc++.h
+-
+

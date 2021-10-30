@@ -1,0 +1,18 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+C:/Users/User/CLionProjects/Day04_Mathematics/A.cpp
+
+C:/Users/User/CLionProjects/Day04_Mathematics/B.cpp
+
+C:/Users/User/CLionProjects/Day04_Mathematics/C.cpp
+
+C:/Users/User/CLionProjects/Day04_Mathematics/F.cpp
+bits/stdc++.h
+-
+

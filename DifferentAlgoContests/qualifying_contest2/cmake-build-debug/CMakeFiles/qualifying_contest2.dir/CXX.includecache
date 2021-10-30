@@ -1,0 +1,18 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+C:/Users/User/CLionProjects/qualifying_contest2/A. Clasterisation.cpp
+
+C:/Users/User/CLionProjects/qualifying_contest2/B_Froggy.cpp
+bits/stdc++.h
+-
+
+C:/Users/User/CLionProjects/qualifying_contest2/C_Tesla.cpp
+
+C:/Users/User/CLionProjects/qualifying_contest2/main.cpp
+

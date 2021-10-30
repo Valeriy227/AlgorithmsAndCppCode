@@ -1,0 +1,42 @@
+#include <vector>
+#include <algorithm>
+#include <map>
+#include <cmath>
+#include <iomanip>
+#include <set>
+#include <unordered_map>
+#include <iostream>
+#include <deque>
+
+#define endl "\n"
+
+using namespace std;
+
+typedef long long ll;
+typedef long double ld;
+
+vec
+
+ll cross_prod(pair<ll, ll> a, pair<ll, ll> b) {
+    return a.first * b.second - a.second * b.first;
+}
+
+ll scal_prod(pair<ll, ll> a, pair<ll, ll> b) {
+    return a.first * b.first + a.second * b.second;
+}
+
+int main() {
+    int n;
+    cin >> n;
+    vector<pair<ll, ll>> v(n);
+    for (int i = 0; i < n; ++i) {
+        cin >> v[i].first >> v[i].second;
+    }
+
+    vector<
+    for (int i = 0; i < n; ++i) {
+        for (int j = i + 1; j < n; ++j) {
+
+        }
+    }
+}

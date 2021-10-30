@@ -1,0 +1,16 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+C:/Users/User/CLionProjects/NP-completed_problems/A.cpp
+
+C:/Users/User/CLionProjects/NP-completed_problems/B.cpp
+bits/stdc++.h
+-
+
+C:/Users/User/CLionProjects/NP-completed_problems/main.cpp
+

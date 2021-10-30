@@ -1,0 +1,82 @@
+#include <iostream>
+#include <vector>
+#include <algorithm>
+#include <map>
+#include <queue>
+#define endl "\n"
+
+using namespace std;
+
+typedef long long ll;
+
+ll mod = 1e6;
+
+int c;
+int t;
+vector<vector<int>> g;
+
+void merge(vector<ll> &dp1, vector<ll> &dp2) {
+    vector<ll> res(c + 1);
+    vector<ll> suff1(c + 1), suff2(c + 1);
+    suff1[c] = dp1[c];
+    suff2[c] = dp2[c];
+    for (int i = c - 1; i >= 0; --i) {
+        suff1[i] = (suff1[i + 1] + dp1[i]) % mod;
+        suff2[i] = (suff2[i + 1] + dp2[i]) % mod;
+    }
+
+    for (int i = 0; i <= c; ++i) {
+        res[i] = (res[i] + (dp1[i] * suff2[max(i, c - i)]) % mod) % mod;
+        if (i + 1 <= c) {
+            res[i] = (res[i] + (dp2[i] * suff1[max(i + 1, c - i)]) % mod) % mod;
+        }
+    }
+
+    swap(res, dp1);
+}
+
+void dfs(int cv, int anc, vector<ll> &dp) {
+    dp[0] = 1;
+    dp[c] = 1;
+    for (int nv : g[cv]) {
+        if (nv != anc) {
+            vector<ll> ndp(c + 1);
+            dfs(nv, cv, ndp);
+            merge(dp, ndp);
+        }
+    }
+
+    dp[c] = (dp[c] + dp[c - 1]) % mod;
+    for (int i = c - 2; i >= 0; --i) {
+        dp[i + 1] = dp[i];
+    }
+    dp[0] = 0;
+}
+
+void solution(int n) {
+    g.clear();
+    g.resize(n);
+    for (int i = 0; i < n - 1; ++i) {
+        int a, b;
+        cin >> a >> b;
+        g[a - 1].push_back(b - 1);
+        g[b - 1].push_back(a - 1);
+    }
+    vector<ll> dp(c + 1);
+    dfs(0, 0, dp);
+    ll ans = 0;
+    for (ll i : dp) {
+        ans = (ans + i) % mod;
+    }
+    cout << "Case #" << t << ": " << ans << endl;
+}
+
+int main() {
+    int n;
+    cin >> n >> c;
+    while (n > 0) {
+        t++;
+        solution(n);
+        cin >> n >> c;
+    }
+}

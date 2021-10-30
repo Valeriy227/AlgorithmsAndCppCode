@@ -1,0 +1,20 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+C:/Users/User/CLionProjects/Technocup_2019_2/A.cpp
+
+C:/Users/User/CLionProjects/Technocup_2019_2/B.cpp
+
+C:/Users/User/CLionProjects/Technocup_2019_2/C.cpp
+
+C:/Users/User/CLionProjects/Technocup_2019_2/D.cpp
+
+C:/Users/User/CLionProjects/Technocup_2019_2/main.cpp
+bits/stdc++.h
+-
+

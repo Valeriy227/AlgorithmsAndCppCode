@@ -1,0 +1,20 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+C:/Users/User/CLionProjects/munitsip2019/A.cpp
+
+C:/Users/User/CLionProjects/munitsip2019/B.cpp
+
+C:/Users/User/CLionProjects/munitsip2019/C.cpp
+
+C:/Users/User/CLionProjects/munitsip2019/D.cpp
+
+C:/Users/User/CLionProjects/munitsip2019/E.cpp
+bits/stdc++.h
+-
+

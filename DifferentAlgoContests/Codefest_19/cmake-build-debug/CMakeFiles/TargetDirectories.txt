@@ -1,0 +1,3 @@
+C:/Users/User/CLionProjects/Codefest_19/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+C:/Users/User/CLionProjects/Codefest_19/cmake-build-debug/CMakeFiles/Codefest_19.dir
+C:/Users/User/CLionProjects/Codefest_19/cmake-build-debug/CMakeFiles/edit_cache.dir

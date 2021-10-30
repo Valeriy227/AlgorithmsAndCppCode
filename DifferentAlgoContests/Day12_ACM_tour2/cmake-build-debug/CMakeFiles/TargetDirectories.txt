@@ -1,0 +1,3 @@
+C:/Users/User/CLionProjects/Day12_ACM_tour2/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+C:/Users/User/CLionProjects/Day12_ACM_tour2/cmake-build-debug/CMakeFiles/Day12_ACM_tour2.dir
+C:/Users/User/CLionProjects/Day12_ACM_tour2/cmake-build-debug/CMakeFiles/edit_cache.dir

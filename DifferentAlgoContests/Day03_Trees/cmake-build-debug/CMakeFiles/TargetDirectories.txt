@@ -1,0 +1,3 @@
+C:/Users/User/CLionProjects/Day03_Trees/cmake-build-debug/CMakeFiles/Day03_Trees.dir
+C:/Users/User/CLionProjects/Day03_Trees/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/User/CLionProjects/Day03_Trees/cmake-build-debug/CMakeFiles/rebuild_cache.dir

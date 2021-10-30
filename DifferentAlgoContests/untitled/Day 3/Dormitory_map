@@ -1,0 +1,126 @@
+//OK
+//Additionally check each edge
+
+#include <iostream>
+#include <vector>
+#include <algorithm>
+#include <map>
+#include <cmath>
+#include <iomanip>
+#include <set>
+#include <queue>
+
+#define endl "\n"
+
+using namespace std;
+
+typedef long long ll;
+
+int n;
+vector<vector<pair<int, int>>> g;
+vector<pair<int, int>> incr, decr;
+vector<int> col;
+vector<bool> used;
+
+void get_coef(int cv, bool flag) {
+    used[cv] = true;
+    if (flag) {
+        incr.push_back({col[cv], cv});
+    }
+    else {
+        decr.push_back({col[cv], cv});
+    }
+
+    for (auto nv : g[cv]) {
+        if (!used[nv.first]) {
+            col[nv.first] = nv.second - col[cv];
+            get_coef(nv.first, !flag);
+        }
+    }
+}
+
+void print() {
+    for (int i : col) {
+        cout << i << " ";
+    }
+    cout << endl;
+}
+
+bool check_col(int cv) {
+    used[cv] = true;
+    for (auto nv : g[cv]) {
+        if (used[nv.first]) {
+            if (col[nv.first] != nv.second - col[cv]) {
+                return false;
+            }
+        }
+        else {
+            if (!check_col(nv.first)) {
+                return false;
+            }
+        }
+    }
+    return true;
+}
+
+bool check(int t) {
+    used.assign(n, false);
+    for (auto i : incr) {
+        int num = i.first + t;
+        if (!(0 < num && num <= n) || used[num - 1]) {
+            return false;
+        }
+        col[i.second] = num;
+        used[num - 1] = true;
+    }
+    for (auto i : decr) {
+        int num = i.first - t;
+        if (!(0 < num && num <= n) || used[num - 1]) {
+            return false;
+        }
+        col[i.second] = num;
+        used[num - 1] = true;
+    }
+    used.assign(n, false);
+    return check_col(0);
+}
+
+int main() {
+    int m;
+    cin >> n >> m;
+    g.resize(n);
+    used.resize(n);
+    col.resize(n);
+    for (int i = 0; i < m; ++i) {
+        int a, b, c;
+        cin >> a >> b >> c;
+        g[a - 1].push_back({b - 1, c});
+        g[b - 1].push_back({a - 1, c});
+    }
+
+    get_coef(0, 1);
+
+    sort(incr.begin(), incr.end());
+    sort(decr.begin(), decr.end());
+
+    if (check(1 - incr[0].first)) {
+        if (!decr.empty() && check(decr[0].first - 1)) {
+            cout << 2 << endl;
+            print();
+        }
+        else {
+            cout << 1 << endl;
+            check(1 - incr[0].first);
+            print();
+        }
+    }
+    else {
+        if (!decr.empty() && check(decr[0].first - 1)) {
+            cout << 1 << endl;
+            print();
+        }
+        else {
+            cout << 0 << endl;
+        }
+    }
+}

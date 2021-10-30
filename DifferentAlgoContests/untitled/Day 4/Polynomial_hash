@@ -1,0 +1,56 @@
+//ML12
+//Just change vector on unordered_map, and you will achieve success
+//OK
+
+#include <iostream>
+#include <vector>
+#include <algorithm>
+#include <map>
+#include <cmath>
+#include <iomanip>
+#include <set>
+#include <unordered_map>
+
+#define endl "\n"
+
+using namespace std;
+
+typedef long long ll;
+
+string gen_str(string &res) {
+    res.clear();
+    for (int i = 0; i < 10; ++i) {
+        res.push_back('a' + rand() % 26);
+    }
+    return res;
+}
+
+ll get_hash(ll p, ll q, string &s) {
+    ll p_ = 1, res = 0;
+    for (char c : s) {
+        res = (res + c * p_) % q;
+        p_ = p_ * p % q;
+    }
+    return res;
+}
+
+int main() {
+    ll q, p, h;
+    cin >> q >> p >> h;
+    unordered_map<ll, string> used(q);
+    ll p_ = 1;
+    for (int i = 0; i < 10; ++i) {
+        p_ = p_ * p % q;
+    }
+    while (true) {
+        string s;
+        gen_str(s);
+        ll hash = get_hash(p, q, s);
+        used[hash] = s;
+        ll need = (h - hash * p_ % q + 2 * q) % q;
+        if (used.count(need)) {
+            cout << used[need] << s << endl;
+            break;
+        }
+    }
+}

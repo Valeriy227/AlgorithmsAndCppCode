@@ -1,0 +1,3 @@
+C:/Users/User/CLionProjects/Day13_Crossing_of_matroids/cmake-build-debug/CMakeFiles/Day13_Crossing_of_matroids.dir
+C:/Users/User/CLionProjects/Day13_Crossing_of_matroids/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/User/CLionProjects/Day13_Crossing_of_matroids/cmake-build-debug/CMakeFiles/rebuild_cache.dir

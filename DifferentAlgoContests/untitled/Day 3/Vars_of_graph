@@ -1,0 +1,50 @@
+//OK
+
+#include <iostream>
+#include <vector>
+#include <algorithm>
+#include <map>
+#include <cmath>
+#include <iomanip>
+#include <set>
+#include <queue>
+
+#define endl "\n"
+
+using namespace std;
+
+typedef long long ll;
+
+ll mod = 1e9 + 7;
+
+int main() {
+    int n;
+    cin >> n;
+
+    vector<vector<ll>> c(n + 1, vector<ll>(n + 1));
+    c[0][0] = 1;
+    for (int i = 1; i <= n; ++i) {
+        c[i][0] = c[i][i] = 1;
+        for (int j = 1; j < i; ++j) {
+            c[i][j] = (c[i - 1][j - 1] + c[i - 1][j]) % mod;
+        }
+    }
+
+    vector<ll> dp(n + 1, 1);
+    ll prev = 0;
+    for (int i = 1; i <= n; ++i) {
+        dp[i] = dp[i - 1];
+        ll curr = i * (i - 1) / 2;
+        for (ll j = prev + 1; j <= curr; ++j) {
+            dp[i] = (dp[i] * 2) % mod;
+        }
+        prev = curr;
+    }
+
+    for (int i = 1; i <= n; ++i) {
+        for (int j = 1; j <= i; ++j) {
+            dp[i] = ((dp[i] - c[i][j] * dp[i - j] % mod) + 2 * mod) % mod;
+        }
+    }
+    cout << dp[n] << endl;
+}
